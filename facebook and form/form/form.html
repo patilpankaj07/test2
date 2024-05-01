@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    th {
+      color: red;
+      background-color: yellow;
+      font-size: 1.5rem;
+    }
+    button {
+      padding: 10px;
+    }
+    td {
+      background-color: rgb(123, 202, 242);
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <form onsubmit="return validateForm()">
+      <table border="2px">
+        <tr>
+          <th colspan="2">
+            User Form
+          </th>
+        </tr>
+        <tr>
+          <td>Enter Name</td>
+          <td><input type="text" placeholder="name" id="name"></td>
+        </tr>
+        <tr>
+          <td>Enter Password</td>
+          <td><input type="text" placeholder="password" id="password"></td>
+        </tr>
+        <tr>
+          <td>address</td>
+          <td><textarea rows="4" placeholder="address" id="address"></textarea></td>
+        </tr>
+        <tr>
+          <td>games</td>
+          <td>
+            <input type="checkbox">h <br>
+            <input type="checkbox">b <br>
+            <input type="checkbox">c <br>
+            <input type="checkbox">v <br>
+          </td>
+        </tr>
+        <tr>
+          <td>gender</td>
+          <td>
+            <input type="radio" name="gender" id="male">Male
+            <input type="radio" name="gender" id="female">Female
+          </td>
+        </tr>
+        <tr>
+          <td>select</td>
+          <td>
+            <select style="width: 100px;" id="select">
+              <option selected value="select">select</option>
+              <option value="10">10</option>
+              <option value="50">50</option>
+              <option value="20">20</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="file" name="file">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <center>
+              <button type="button" onclick="validateForm()">click me</button>
+              <button type="reset"> reset</button>
+              <button type="submit">submit</button>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var password = document.getElementById('password').value;
+      var address = document.getElementById('address').value;
+      var genderMale = document.getElementById('male').checked;
+      var genderFemale = document.getElementById('female').checked;
+      var select = document.getElementById('select').value;
+
+      if (name === '' || password === '' || address === '' || (!genderMale && !genderFemale) || select === 'select') {
+        alert('Please fill in all fields.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
